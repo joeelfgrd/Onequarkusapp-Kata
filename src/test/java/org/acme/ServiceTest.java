@@ -6,6 +6,7 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.PersistenceContext;
@@ -38,8 +39,7 @@ public class ServiceTest {
 		Assertions.assertThat(elixir).isNotNull(); 
 		Assertions.assertThat(elixir.getNombre()).isEqualTo("Elixir of the Mongoose"); 
 		Assertions.assertThat(elixir.getQuality()).isEqualTo(7); 
-		Assertions.assertThat(elixir.getTipo()).isEqualTo("NormalItem"); 
-	}
+		Assertions.assertThat(elixir.getTipo()).isEqualTo("NormalItem"); }
 
 	/**
 	 * Completa la definicion y el mapping
