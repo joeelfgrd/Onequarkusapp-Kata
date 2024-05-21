@@ -3,28 +3,32 @@ package org.acme;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.util.stream.Collectors;
 import java.util.List;
 
 @Entity
     
-@Table(name = "t_orden")
+@Table(name = "t_ordenes")
 public class Orden extends PanacheEntityBase {
-    @Id
-    @Column(name = "orden_id")
-    public long id;
-
-    @JoinColumn(name = "orden_usuario")
-    public Usuaria usuario;
-
-    @JoinColumn(name = "orden_item")
-    public Item item;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     
-    public Orden(Usuaria usuario, Item item){
-        this.usuario = usuario;
+    @Column(name = "ord_id")
+    public long id;
+    @OneToOne
+    @JoinColumn(name = "ord_user")
+    public Usuaria user;
+    @OneToOne
+    @JoinColumn(name = "ord_item")
+    public Item item;
+    public Orden() {}
+    public Orden(Usuaria user, Item item){
+        this.user = user;
         this.item = item;
     }
 
@@ -32,7 +36,7 @@ public class Orden extends PanacheEntityBase {
         return id;
     }
     public Usuaria getUser(){
-        return usuario;
+        return user;
     }
     public Item getItem(){
         return item;

@@ -9,9 +9,9 @@ import jakarta.persistence.Table;
     @Table(name = "t_items")
     public class Item extends PanacheEntityBase{
     @Id
-    @Column(name = "item_nombre")
+    @Column(name = "item_nom")
     public String nombre="";
-    @Column(name = "item_quality")
+    @Column(name = " item_prop")
     public int quality = 0;
     @Column(name = "item_tipo")
     public String tipo="";

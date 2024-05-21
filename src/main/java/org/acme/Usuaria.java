@@ -7,14 +7,14 @@ import jakarta.persistence.Table;
 
 @Entity
     
-@Table(name = "t_usuarios")
+@Table(name = "t_users")
     public class Usuaria extends PanacheEntityBase{
     
     @Id
-    @Column(name = "usuario_nombre")
+    @Column(name = "user_nom")
     public String nombre="";
 
-    @Column(name = "usuario_destreza")
+    @Column(name = "user_prop")
     public int destreza = 0;
 
     public String getNombre(){

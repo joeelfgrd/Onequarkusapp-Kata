@@ -4,34 +4,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 public class ServiceOlli {
-    public ServiceOlli(){}
 
+    public ServiceOlli() {}
+    
     public Usuaria cargaUsuaria(String nombre) {
         Optional<Usuaria> usuaria = Usuaria.findByIdOptional(nombre);
-        if (usuaria.isPresent()) {
-            return usuaria.get();
-        } else {
-            return new Usuaria();
-        }
-        /*return usuaria.isPresent()? usuaria.get(): new Usuaria();*/
+        return usuaria.isPresent()? usuaria.get(): new Usuaria();
     }
+
     public Item cargaItem(String nombre) {
         Optional<Item> item = Item.findByIdOptional(nombre);
-        if (item.isPresent()) {
-            return item.get();
-        } else {
-            return new Item();
-        }
-        /*return item.isPresent()? item.get(): new Item();*/
+        return item.isPresent()? item.get(): new Item();
     }
-    public List<Orden> cargaOrden(String nombre) {
-        return Orden.findByUserName(nombre);
+
+    public List<Orden> cargaOrden(String usuaria_nombre) {
+        return Orden.findByUserName(usuaria_nombre);
     }
+
+    // contenido min eval: if-else
     @Transactional
     public Orden comanda(String usuaria_nombre, String item_nombre) {
         Orden orden = null;
@@ -44,6 +41,8 @@ public class ServiceOlli {
         }
         return orden;
     }
+
+    // contenido min eval: loop, if-else, colecciones
     @Transactional
     public List<Orden> comandaMultiple(String usuaria, List<String> productos) {
 
