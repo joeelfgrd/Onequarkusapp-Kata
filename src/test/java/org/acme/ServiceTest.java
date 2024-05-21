@@ -5,9 +5,6 @@ import java.util.List;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.pingpong.onequarkusapp.dominio.Item;
-import org.pingpong.onequarkusapp.dominio.Orden;
-import org.pingpong.onequarkusapp.dominio.Usuaria;
 
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
@@ -36,14 +33,13 @@ public class ServiceTest {
 	 * Completa la definicion y el mapping
 	 * de la clase Item a la tabla t_items
 	 */
-    @Test
-    public void test_mapping_normalItem() {
-        Item elixir = em.find(Item.class, "Elixir of the Mongoose");
-        Assertions.assertThat(elixir).isNotNull();
-        Assertions.assertThat(elixir.getNombre()).isEqualTo("Elixir of the Mongoose");
-		Assertions.assertThat(elixir.getQuality()).isEqualTo(7);
-        Assertions.assertThat(elixir.getTipo()).isEqualTo("NormalItem");
-    }
+    @Test public void test_mapping_normalItem() { 
+		Item elixir = em.find(Item.class, "Elixir of the Mongoose"); 
+		Assertions.assertThat(elixir).isNotNull(); 
+		Assertions.assertThat(elixir.getNombre()).isEqualTo("Elixir of the Mongoose"); 
+		Assertions.assertThat(elixir.getQuality()).isEqualTo(7); 
+		Assertions.assertThat(elixir.getTipo()).isEqualTo("NormalItem"); 
+	}
 
 	/**
 	 * Completa la definicion y el mapping
