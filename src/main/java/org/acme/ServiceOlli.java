@@ -28,7 +28,6 @@ public class ServiceOlli {
         return Orden.findByUserName(usuaria_nombre);
     }
 
-    // contenido min eval: if-else
     @Transactional
     public Orden comanda(String usuaria_nombre, String item_nombre) {
         Orden orden = null;
@@ -42,7 +41,6 @@ public class ServiceOlli {
         return orden;
     }
 
-    // contenido min eval: loop, if-else, colecciones
     @Transactional
     public List<Orden> comandaMultiple(String usuaria, List<String> productos) {
 
